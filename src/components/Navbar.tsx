@@ -1,15 +1,17 @@
-import { Link, useNavigate } from "react-router-dom";
+import {  useNavigate } from "react-router-dom";
 import { SidebarTrigger } from "./ui/sidebar";
-// import { UseLogin } from "../Context/LoginContext";
+
+
 
 import { Button } from "./ui/button";
 import { ModeToggle } from "./mode-toggle";
+import { useFirebase } from "@/context/Firebase";
 
 
 export default function Navbar() {
     const navigate = useNavigate();
 
-    //   const { isLoggedIn, logout } = UseLogin();
+      const {isloggedIn,logoutUser } = useFirebase()
 
   return (
     <div className="sticky top-0 z-50 w-full border-b border-neutral-600  backdrop-blur supports-[backdrop-filter]:bg-background/60 ">
@@ -25,27 +27,24 @@ export default function Navbar() {
 
       <ModeToggle />
 
-        <Button 
-        onClick={() => navigate("/add-content")}
-        className="bg-white text-black py-2 px-3 rounded-md text-sm cursor-pointer">
-          Sign In
-        </Button>
-
-
- {/* {  isLoggedIn ? <Button
+       {  isloggedIn ? <Button
         onClick={() => {
-        logout()
-        navigate("/")
+        logoutUser()
+        navigate("/signin")
       }}
-        className="bg-gradient-to-r from-orange-400 to-orange-600 py-2 px-3 rounded-md text-md text-white cursor-pointer">
+        className=" py-2 px-3 rounded-md text-md text-black bg-white cursor-pointer text-sm">
           Logout
-        </Button> :     <Button
+        </Button> :   
+        
+        <Button 
         onClick={() => navigate("/signin")}
-        className="bg-gradient-to-r from-orange-400 to-orange-600 py-2 px-3 rounded-md text-md text-white cursor-pointer">
+        className="py-2 px-3 rounded-md text-md text-black bg-white cursor-pointer text-sm">
           Sign In
-        </Button>} */}
+        </Button>}
 
 </div>
+  
+
   
       </div>
     </div>

@@ -59,7 +59,7 @@
 // }
 
 
-import { ChevronUp, Home,  Settings, User2,Youtube , Twitter,Link2,Group, LayoutDashboard, BookOpen, Users, BarChart3 } from "lucide-react"
+import { ChevronUp, Home,  Settings, User2,Youtube , Twitter,Link2,Group, LayoutDashboard, BookOpen, Users, BarChart3, FolderOpen } from "lucide-react"
 
 import {Link, useNavigate} from "react-router-dom"
 
@@ -113,6 +113,11 @@ const menuItems = [
     title: "Analytics",
     url: "/analytics",
     icon: BarChart3,
+  },
+    {
+    title: "Detail",
+    url: "/CourseDetail",
+    icon: FolderOpen,
   },
   {
     title: "Settings",
